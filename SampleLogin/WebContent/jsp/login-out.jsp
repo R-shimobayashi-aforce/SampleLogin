@@ -6,4 +6,4 @@
 ようこそ、${customer.login}さん！
 
 
-<%@includefile"../footer.html" %>
+<%@include file="../footer.html"%>
