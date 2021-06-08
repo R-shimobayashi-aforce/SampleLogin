@@ -1,5 +1,6 @@
 package jp.co.aforce.servlet;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,6 +11,12 @@ public class LoginAction extends Action{
 	public String execute(
 			HttpServletRequest request,HttpServletResponse response
 			)throws Exception{
+		
+		String name="login";
+		String value="value";
+		Cookie cookie=new Cookie(name, value);
+		cookie.setMaxAge(60*60*24);
+		response.addCookie(cookie);
 		
 		HttpSession session=request.getSession();
 		
