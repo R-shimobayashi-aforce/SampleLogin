@@ -12,14 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = { "*.action" })
 public class FrontController extends HttpServlet {
 
-	public void doGet(
+	public void doPost(
 			HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		try {
 			String path = request.getServletPath().substring(1);
 			String name = "jp.co.aforce.servlet."+path.replace(".a", "A").replace('/', '.');
-			Action action = (Action) Class.forName(name);
-			getDeclaredConstructor().newInstance();
+			Action action = (Action) Class.forName(name).getDeclaredConstructor().newInstance();
 			String url = "jsp/"+action.execute(request, response);
 			request.getRequestDispatcher(url).forward(request, response);
 		} catch (Exception e) {
@@ -29,7 +28,7 @@ public class FrontController extends HttpServlet {
 	
 	
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 }

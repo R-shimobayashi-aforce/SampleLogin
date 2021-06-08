@@ -1,6 +1,8 @@
 package jp.co.aforce.beans;
 
-public class Customer implements java.io.Serializable {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
 
 	private String id;
 	private String login;

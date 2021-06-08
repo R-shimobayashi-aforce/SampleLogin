@@ -10,7 +10,7 @@ public class CustomerDAO extends DAO {
 	public Customer search(String login, String password)
 			throws Exception {
 		jp.co.aforce.beans.Customer customer = null;
-
+		
 		Connection con = getConnection();
 
 		PreparedStatement st;
